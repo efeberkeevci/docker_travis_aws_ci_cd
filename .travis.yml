@@ -9,3 +9,15 @@ before_install:
 script:
   - docker run -e CI=true efeberkeevci/docker_kubernetes_tutorial npm run test
 
+deploy:
+  provider: elasticbeanstalk
+  region: ca-central-1
+  app: "docker_tutorial"
+  env: "Dockertutorial-env"
+  bucket_name: "elasticbeanstalk-ca-central-1-596644324991"
+  bucket_path: "docker_tutorial"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESSKEY
+  secret_access_key: $AWS_SECRETKEY
+  
