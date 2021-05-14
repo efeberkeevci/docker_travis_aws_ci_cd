@@ -1,4 +1,5 @@
 sudo: required
+language: generic 
 services:
   - docker
 
@@ -6,4 +7,5 @@ before_install:
   - docker build -t efeberkeevci/docker_kubernetes_tutorial -f Dockerfile.dev .
 
 script:
-  - docker run efeberkeevci/docker_kubernetes_tutorial npm run test -- --coverage
+  - docker run -e CI=true efeberkeevci/docker_kubernetes_tutorial npm run test
+
