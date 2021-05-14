@@ -10,3 +10,5 @@ COPY . .
 #For production it is better to keep it this way
 
 CMD ["npm", "run", "start"]
+EXPOSE 80
+#Elasticbanstalk looks for this EXPOSE instruction and maps this to the incoming traffic port
